@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Box } from './container/Box';
+
 
 ReactDOM.render(
   <>
-    <h1>Hola</h1>
+    <Box/>
   </>,
   document.getElementById('root')
 );
