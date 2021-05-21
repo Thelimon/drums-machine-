@@ -5,13 +5,18 @@ const KeyPad = styled.main`
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #b3b3b3;
+  background-color:#8d8d8d;
 `
 
-const PadContainer = styled.div`
+const PadControlContainer = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr .3fr;
+  background-color: #b3b3b3;
+  outline: 5px solid orange;
+`
+const PadContainer = styled.div`
   place-items: center;
+  background-color: #8d8d8d;
 `
 
 const KeyContainer = styled.section`
@@ -20,8 +25,8 @@ const KeyContainer = styled.section`
   place-items: center;
   justify-content: center;
   align-content: center;
-  width: 20.6rem;
-  height: 41vh;
+  width: 28rem;
+  height: 53vh;
 `
 
 const Key = styled.div`
@@ -47,7 +52,6 @@ const PadButtonContainer = styled.div`
   height: 20px;
   padding: 1px;
   background-color: black;
-  
 `
 
 const ControlsContainer = styled.aside`
@@ -55,7 +59,7 @@ const ControlsContainer = styled.aside`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0rem 2rem;
+  margin-right: 2rem;
 `
 
 const SwitchStyled = styled.div`
@@ -75,4 +79,5 @@ const DisplayStyled = styled.p`
   box-sizing: border-box;
 `
 
-export {KeyPad, KeyContainer, Key, PadContainer, PadButtonContainer, ControlsContainer, DisplayStyled, SwitchStyled}
+export {KeyPad, KeyContainer, Key, PadContainer, PadButtonContainer, ControlsContainer, DisplayStyled, SwitchStyled, 
+        PadControlContainer}

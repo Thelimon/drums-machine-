@@ -8,6 +8,7 @@ import {
   PadButtonContainer,
   DisplayStyled,
   SwitchStyled,
+  PadControlContainer
 } from "../styles/KeypadStyled";
 
 const Bank = () => {
@@ -23,7 +24,7 @@ const Bank = () => {
 
   const [soundHook, setsoundHook] = useState({
     display : true,
-    name: null,
+    name: "",
   });
 
 const {display, name  } = soundHook;
@@ -38,7 +39,7 @@ const handleClickSound = (event, id,  idSound) =>{
 }
 
   return (
-    <>
+    <PadControlContainer>
       <KeyContainer>
         {dataBankOne.map((item) => { 
           return (
@@ -67,7 +68,7 @@ const handleClickSound = (event, id,  idSound) =>{
           <SwitchStyled />
         </PadButtonContainer>
       </ControlsContainer>
-    </>
+    </PadControlContainer>
   );
 };
 
