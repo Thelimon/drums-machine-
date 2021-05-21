@@ -1,6 +1,7 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { UseBankOne } from '../hooks/UseBankOne'
 import { UseBankTwo } from '../hooks/UseBankTwo'
+import {Key, KeyContainer} from "../styles/KeypadStyled";
 
 const Bank = () => {
 
@@ -10,18 +11,26 @@ const Bank = () => {
     const {dataBankOne} = keysBankOne;
     const {dataBankTwo} = keysBankTwo;
 
+    const [soundHook, setsoundHook] = useState({
+        power : true,
+        name: null,
+    });
+
+    const {power, display} = soundHook;
+    
     return (
         <>
-            <main>
+            <KeyContainer>
                 {dataBankOne.map(key =>{
                     return (
-                        <div className="test">
-                            <audio className="clip" id={key.keyTrigger} src={key.url}/>
-                            {key.keyTrigger}
-                        </div>
+                        <Key key={ key.id } id={ key.id } 
+                            onClick={ (event) => this.handleClickSound(event, key.id, key.keyTrigger)}>
+                                <audio id={ key.keyTrigger } src={ key.url } />
+                                {key.keyTrigger}
+                        </Key>
                     )
                 })}
-            </main>
+            </KeyContainer>
         </>
     )
 }

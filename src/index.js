@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Box } from './container/Box';
+import { Keypad } from './container/Keypad';
 
 
 ReactDOM.render(
   <>
-    <Box/>
+    <Keypad/>
   </>,
   document.getElementById('root')
 );
