@@ -20,7 +20,7 @@ const KeyContainer = styled.section`
   place-items: center;
   justify-content: center;
   align-content: center;
-  width: 660px;
+  width: 20.6rem;
   height: 41vh;
 `
 
@@ -41,5 +41,38 @@ const Key = styled.div`
   font-weight: 700;
 `
 
+const PadButtonContainer = styled.div`
+  border: 1px solid black;
+  width: 50px;
+  height: 20px;
+  padding: 1px;
+  background-color: black;
+  
+`
 
-export {KeyPad, KeyContainer, Key, PadContainer}
+const ControlsContainer = styled.aside`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0rem 2rem;
+`
+
+const SwitchStyled = styled.div`
+  width: 23px;
+  height: 19px;
+  background: blue;
+  border: 1px solid black;
+  box-sizing: border-box;
+  cursor: pointer;
+`
+
+const DisplayStyled = styled.p`
+  width: 12.5rem;
+  background-color: gray; 
+  margin: 1rem auto;
+  padding: 1rem;
+  box-sizing: border-box;
+`
+
+export {KeyPad, KeyContainer, Key, PadContainer, PadButtonContainer, ControlsContainer, DisplayStyled, SwitchStyled}
