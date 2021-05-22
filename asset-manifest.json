@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.js": "/https://github.com/Thelimon/drums-machine-/static/js/main.3332de03.chunk.js",
-    "main.js.map": "/https://github.com/Thelimon/drums-machine-/static/js/main.3332de03.chunk.js.map",
-    "runtime-main.js": "/https://github.com/Thelimon/drums-machine-/static/js/runtime-main.ea9909bc.js",
-    "runtime-main.js.map": "/https://github.com/Thelimon/drums-machine-/static/js/runtime-main.ea9909bc.js.map",
-    "static/js/2.c2893df4.chunk.js": "/https://github.com/Thelimon/drums-machine-/static/js/2.c2893df4.chunk.js",
-    "static/js/2.c2893df4.chunk.js.map": "/https://github.com/Thelimon/drums-machine-/static/js/2.c2893df4.chunk.js.map",
-    "index.html": "/https://github.com/Thelimon/drums-machine-/index.html",
-    "static/js/2.c2893df4.chunk.js.LICENSE.txt": "/https://github.com/Thelimon/drums-machine-/static/js/2.c2893df4.chunk.js.LICENSE.txt"
+    "main.js": "/drums-machine-/static/js/main.3332de03.chunk.js",
+    "main.js.map": "/drums-machine-/static/js/main.3332de03.chunk.js.map",
+    "runtime-main.js": "/drums-machine-/static/js/runtime-main.9e0f5fa5.js",
+    "runtime-main.js.map": "/drums-machine-/static/js/runtime-main.9e0f5fa5.js.map",
+    "static/js/2.a2956e8d.chunk.js": "/drums-machine-/static/js/2.a2956e8d.chunk.js",
+    "static/js/2.a2956e8d.chunk.js.map": "/drums-machine-/static/js/2.a2956e8d.chunk.js.map",
+    "index.html": "/drums-machine-/index.html",
+    "static/js/2.a2956e8d.chunk.js.LICENSE.txt": "/drums-machine-/static/js/2.a2956e8d.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.ea9909bc.js",
-    "static/js/2.c2893df4.chunk.js",
+    "static/js/runtime-main.9e0f5fa5.js",
+    "static/js/2.a2956e8d.chunk.js",
     "static/js/main.3332de03.chunk.js"
   ]
 }
