@@ -31,11 +31,26 @@ const Bank = () => {
     volume: 0.5,
     soundStyle: "dataBankOne",
   });
+
   const { display, name, volume, soundStyle } = soundHook;
 
   const handleClickSound = (event, id, idSound) => {
+    event.preventDefault();
     setsoundHook((previousState) => {
       return { ...previousState, name: id };
+    });
+    const sound = document.getElementById(idSound);
+    sound.currentTime = 0;
+    sound.play();
+  };
+
+  const handleKeyPressSound = (event, keyCode, id, idSound) => {
+    event.preventDefault();
+    setsoundHook((previousState) => {
+      return { 
+        ...previousState, 
+        name: id 
+      };
     });
     const sound = document.getElementById(idSound);
     sound.currentTime = 0;
@@ -127,6 +142,10 @@ const Bank = () => {
               onClick={(event) =>
                 handleClickSound(event, item.id, item.keyTrigger)
               }
+              tabIndex="0"
+              onKeyDown={(event)=>{
+                handleKeyPressSound(event, item.keyCode, item.id, item.keyTrigger)
+              }}
             >
               <audio id={item.keyTrigger} src={item.url} />
               {item.keyTrigger}
@@ -141,21 +160,11 @@ const Bank = () => {
           <SwitchStyled style={powerButton} onClick={changePowerState} />
         </PadButtonContainer>
 
-        <input
-          type="range"
-          step="0.01"
-          min="0"
-          max="1"
-          value={`${volume}`}
-          onChange={changeVolume}
-        />
+        <input type="range" step="0.01" min="0" max="1" value={`${volume}`} onChange={changeVolume}/>
 
         <DisplayStyled> {`${name}`} </DisplayStyled>
         <PadButtonContainer>
           <SwitchStyled style={soundStyleButton} onClick={changeStyleSound} />
-          {/* <input type="checkbox" value={sounds1} onChange={()=>{
-            setsounds1(!sounds1)
-          }}/> */}
         </PadButtonContainer>
       </ControlsContainer>
     </PadControlContainer>
