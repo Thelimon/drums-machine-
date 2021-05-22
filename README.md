@@ -4,7 +4,7 @@ This is just and activity for @academiaGeek
 
 ## Github pages
 
-[Link](https://thelimon.github.io/random-quotes-machine/)
+[Link](https://thelimon.github.io/drums-machine-/)
 
 ## Installation
 

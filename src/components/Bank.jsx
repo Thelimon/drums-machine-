@@ -29,9 +29,8 @@ const Bank = () => {
     display: true,
     name: "",
     volume: 0.5,
-    soundStyle: "dataBankOne"
+    soundStyle: "dataBankOne",
   });
-
   const { display, name, volume, soundStyle } = soundHook;
 
   const handleClickSound = (event, id, idSound) => {
@@ -48,7 +47,7 @@ const Bank = () => {
       return {
         ...previousState,
         volume: Number(e.target.value),
-        name: e.target.value,
+        name:` Volume = ${e.target.value}`
       };
     });
   };
@@ -56,27 +55,48 @@ const Bank = () => {
   const changePowerState = (e) => {
     e.preventDefault();
     if (display === true) {
-      setsoundHook((previousState)=>{
+      setsoundHook((previousState) => {
         return {
-          ...previousState, display: false, name: "" 
-        }
+          ...previousState,
+          display: false,
+          name: "",
+        };
       });
-    }else{
-      setsoundHook((previousState)=>{
+    } else {
+      setsoundHook((previousState) => {
         return {
-          ...previousState, display: true, name: "" 
-        }
+          ...previousState,
+          display: true,
+          name: "",
+        };
       });
     }
   };
 
-  const changeStyleSound = (e) =>{
-    e.preventDefault();
-    if(display === true){
-    }
-  }
+  const finalSounds = soundStyle === "dataBankOne" ? dataBankOne : dataBankTwo;
 
-  // const sounds = sounds1 ? dataBankOne : dataBankTwo;
+  const changeStyleSound = (e) => {
+    e.preventDefault();
+    if (display === true) {
+      if (soundStyle === "dataBankOne") {
+        setsoundHook((previousState) => {
+          return {
+            ...previousState,
+            name:"Smooth Piano Kit",
+            soundStyle: "dataBankTwo"
+          };
+        });
+      }else{
+        setsoundHook((previousState) => {
+          return {
+            ...previousState,
+            name:"Heater Kit",
+            soundStyle: "dataBankOne"
+          };
+        });
+      }
+    }
+  };
 
   const powerButton =
     display === false
@@ -88,18 +108,18 @@ const Bank = () => {
         };
 
   const soundStyleButton =
-    display === "dataBankOne"
+      soundStyle === "dataBankOne"
       ? {
-          float: "right",
+          float: "left",
         }
       : {
-          float: "left",
+          float: "right",
         };
 
   return (
     <PadControlContainer>
       <KeyContainer>
-        {dataBankOne.map((item) => {
+        {finalSounds.map((item) => {
           return (
             <Key
               key={item.id}
@@ -132,7 +152,7 @@ const Bank = () => {
 
         <DisplayStyled> {`${name}`} </DisplayStyled>
         <PadButtonContainer>
-          <SwitchStyled style={soundStyleButton} onClick={changeStyleSound}/>
+          <SwitchStyled style={soundStyleButton} onClick={changeStyleSound} />
           {/* <input type="checkbox" value={sounds1} onChange={()=>{
             setsounds1(!sounds1)
           }}/> */}
