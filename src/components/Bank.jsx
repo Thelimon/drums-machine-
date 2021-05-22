@@ -20,6 +20,7 @@ const Bank = () => {
   );
 
   const { dataBankOne } = keysBankOne;
+
   const { dataBankTwo } = keysBankTwo;
 
   const [soundHook, setsoundHook] = useState({
@@ -30,9 +31,7 @@ const Bank = () => {
 const {display, name  } = soundHook;
 
 const handleClickSound = (event, id,  idSound) =>{
-  if(display === true){
-    name: setsoundHook(id)
-  }
+  setsoundHook({name:id});
   const sound = document.getElementById(idSound);
   sound.currentTime = 0;
   sound.play();
