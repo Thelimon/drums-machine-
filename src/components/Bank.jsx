@@ -8,13 +8,15 @@ import {
   PadButtonContainer,
   DisplayStyled,
   SwitchStyled,
-  PadControlContainer
+  PadControlContainer,
+  MainTitle,
 } from "../styles/KeypadStyled";
 
 const Bank = () => {
   const keysBankOne = UseBankOne(
     "https://data-caja-ritmo.herokuapp.com/bankOne"
   );
+
   const keysBankTwo = UseBankTwo(
     "https://data-caja-ritmo.herokuapp.com/bankTwo"
   );
@@ -24,23 +26,80 @@ const Bank = () => {
   const { dataBankTwo } = keysBankTwo;
 
   const [soundHook, setsoundHook] = useState({
-    display : true,
+    display: true,
     name: "",
+    volume: 0.5,
+    soundStyle: "dataBankOne"
   });
 
-const {display, name  } = soundHook;
+  const { display, name, volume, soundStyle } = soundHook;
 
-const handleClickSound = (event, id,  idSound) =>{
-  setsoundHook({name:id});
-  const sound = document.getElementById(idSound);
-  sound.currentTime = 0;
-  sound.play();
-}
+  const handleClickSound = (event, id, idSound) => {
+    setsoundHook((previousState) => {
+      return { ...previousState, name: id };
+    });
+    const sound = document.getElementById(idSound);
+    sound.currentTime = 0;
+    sound.play();
+  };
+
+  const changeVolume = (e) => {
+    setsoundHook((previousState) => {
+      return {
+        ...previousState,
+        volume: Number(e.target.value),
+        name: e.target.value,
+      };
+    });
+  };
+
+  const changePowerState = (e) => {
+    e.preventDefault();
+    if (display === true) {
+      setsoundHook((previousState)=>{
+        return {
+          ...previousState, display: false, name: "" 
+        }
+      });
+    }else{
+      setsoundHook((previousState)=>{
+        return {
+          ...previousState, display: true, name: "" 
+        }
+      });
+    }
+  };
+
+  const changeStyleSound = (e) =>{
+    e.preventDefault();
+    if(display === true){
+    }
+  }
+
+  // const sounds = sounds1 ? dataBankOne : dataBankTwo;
+
+  const powerButton =
+    display === false
+      ? {
+          float: "left",
+        }
+      : {
+          float: "right",
+        };
+
+  const soundStyleButton =
+    display === "dataBankOne"
+      ? {
+          float: "right",
+        }
+      : {
+          float: "left",
+        };
 
   return (
     <PadControlContainer>
       <KeyContainer>
-        {dataBankOne.map((item) => { 
+        {dataBankOne.map((item) => {
           return (
             <Key
               key={item.id}
@@ -54,17 +113,29 @@ const handleClickSound = (event, id,  idSound) =>{
             </Key>
           );
         })}
-
       </KeyContainer>
 
       <ControlsContainer>
-        <p>Power</p>
+        <MainTitle>Power</MainTitle>
         <PadButtonContainer>
-          <SwitchStyled />
+          <SwitchStyled style={powerButton} onClick={changePowerState} />
         </PadButtonContainer>
+
+        <input
+          type="range"
+          step="0.01"
+          min="0"
+          max="1"
+          value={`${volume}`}
+          onChange={changeVolume}
+        />
+
         <DisplayStyled> {`${name}`} </DisplayStyled>
         <PadButtonContainer>
-          <SwitchStyled />
+          <SwitchStyled style={soundStyleButton} onClick={changeStyleSound}/>
+          {/* <input type="checkbox" value={sounds1} onChange={()=>{
+            setsounds1(!sounds1)
+          }}/> */}
         </PadButtonContainer>
       </ControlsContainer>
     </PadControlContainer>
